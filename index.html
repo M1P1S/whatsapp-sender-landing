@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Sender Pro - Multiplique suas Vendas com Disparos Inteligentes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00D856;
+            --primary-dark: #00B847;
+            --secondary: #0A1628;
+            --accent: #3B82F6;
+            --text: #E5E7EB;
+            --text-muted: #9CA3AF;
+            --bg: #030712;
+            --bg-elevated: #0F172A;
+            --border: #1E293B;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 216, 86, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 216, 86, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 216, 86, 0.1);
+            border: 1px solid rgba(0, 216, 86, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 216, 86, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+        .stat-item:nth-child(3) { animation-delay: 0.6s; }
+        .stat-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+        }
+
+        .features .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 216, 86, 0.1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 216, 86, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+        }
+
+        .pricing .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 216, 86, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .plan-cta {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .pricing-card.featured .plan-cta {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .plan-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 216, 86, 0.3);
+        }
+
+        /* Video Container */
+        .plan-video {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: #000;
+        }
+
+        .plan-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: white;
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-weight: 600;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        @keyframes pulse-whatsapp {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.8), 0 0 0 10px rgba(37, 211, 102, 0.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+        }
+
+        .testimonials .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .testimonial-quote {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+        }
+
+        .faq .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .cta-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">WHATSAPP SENDER PRO</div>
+            <a href="https://whatsapp-sender.duckdns.org/auth.html" class="nav-cta">Começar Agora</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">🚀 Sistema Completo de Disparos WhatsApp</div>
+            <h1>
+                Multiplique suas Vendas com<br>
+                <span class="highlight">Disparos Inteligentes</span>
+            </h1>
+            <p>
+                Alcance milhares de clientes instantaneamente. Sistema profissional com anti-ban, 
+                agendamento e relatórios completos. Do iniciante ao enterprise.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://whatsapp-sender.duckdns.org/auth.html" class="btn-primary">Começar Gratuitamente</a>
+                <a href="#features" class="btn-secondary">Ver Recursos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Mensagens Enviadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Clientes Ativos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">99.9%</span>
+                <span class="stat-label">Taxa de Entrega</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Suporte Técnico</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">RECURSOS PODEROSOS</div>
+                <h2 class="section-title">Tudo que você precisa para vender mais</h2>
+                <p class="section-subtitle">Recursos profissionais que fazem a diferença nos seus resultados</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Proteção Anti-Ban</h3>
+                    <p class="feature-description">
+                        Sistema inteligente que ajusta automaticamente os intervalos de envio, 
+                        protegendo sua conta contra bloqueios do WhatsApp.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3 class="feature-title">Agendamento Inteligente</h3>
+                    <p class="feature-description">
+                        Programe seus disparos para o momento ideal. Envie mensagens mesmo quando 
+                        você estiver offline, no horário perfeito para seus clientes.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Relatórios Completos</h3>
+                    <p class="feature-description">
+                        Acompanhe cada mensagem enviada, taxa de entrega, horários de pico e 
+                        muito mais. Dados em tempo real para otimizar suas campanhas.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Multi-Sessões</h3>
+                    <p class="feature-description">
+                        Gerencie múltiplas contas WhatsApp simultaneamente. Ideal para agências 
+                        e empresas com várias linhas de atendimento.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Segmentação Avançada</h3>
+                    <p class="feature-description">
+                        Importe contatos do Google, crie listas personalizadas e segmente seu 
+                        público para campanhas ultra-direcionadas.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <h3 class="feature-title">Mídia e Mensagens</h3>
+                    <p class="feature-description">
+                        Envie textos, imagens, vídeos e documentos. Personalize cada mensagem 
+                        com variáveis e torne sua comunicação única.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">PLANOS E PREÇOS</div>
+                <h2 class="section-title">Escolha o plano ideal para você</h2>
+                <p class="section-subtitle">Do iniciante ao profissional, temos a solução perfeita</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">FREE</h3>
+                    <div class="plan-video">
+                        <iframe src="https://player.vimeo.com/video/1152608829?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                    </div>
+                    <div class="plan-price">R$ 0</div>
+                    <span class="plan-price-label">Para começar</span>
+                    <ul class="plan-features">
+                        <li>1 sessão WhatsApp</li>
+                        <li>Disparos básicos</li>
+                        <li>Envio de mensagens de texto</li>
+                        <li>Suporte por email</li>
+                        <li>Interface intuitiva</li>
+                    </ul>
+                    <a href="https://whatsapp-sender.duckdns.org/auth.html" target="_blank" class="plan-cta" style="display: block; text-align: center; text-decoration: none;">Começar Grátis</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">PRO</h3>
+                    <div class="plan-video">
+                        <iframe src="https://player.vimeo.com/video/1152608920?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                    </div>
+                    <div class="plan-price">R$ 99<span style="font-size: 1.5rem;">,90</span></div>
+                    <span class="plan-price-label">Por mês</span>
+                    <ul class="plan-features">
+                        <li>1 sessão WhatsApp</li>
+                        <li>Agendamento de disparos</li>
+                        <li>Envio de mídia (imagens, vídeos)</li>
+                        <li>Filtro de remoção de duplicados</li>
+                        <li>Intervalos personalizados</li>
+                        <li>Relatórios básicos</li>
+                        <li>Suporte prioritário</li>
+                    </ul>
+                    <a href="https://whatsapp-sender.duckdns.org/auth.html?plan=pro" target="_blank" class="plan-cta" style="display: block; text-align: center; text-decoration: none;">Assinar PRO</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">PREMIUM</h3>
+                    <div class="plan-video">
+                        <iframe src="https://player.vimeo.com/video/1152608872?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                    </div>
+                    <div class="plan-price">R$ 199<span style="font-size: 1.5rem;">,90</span></div>
+                    <span class="plan-price-label">Por mês</span>
+                    <ul class="plan-features">
+                        <li>1 sessão WhatsApp</li>
+                        <li>🛡️ Proteção Anti-Ban Completa</li>
+                        <li>Importação Google Contacts</li>
+                        <li>Sublistas e segmentação avançada</li>
+                        <li>Filtro de remoção de duplicados</li>
+                        <li>Blacklist inteligente</li>
+                        <li>Relatórios completos</li>
+                        <li>Suporte WhatsApp em horário comercial</li>
+                    </ul>
+                    <a href="https://whatsapp-sender.duckdns.org/auth.html?plan=premium" target="_blank" class="plan-cta" style="display: block; text-align: center; text-decoration: none;">Assinar PREMIUM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">DEPOIMENTOS</div>
+                <h2 class="section-title">O que nossos clientes dizem</h2>
+                <p class="section-subtitle">Resultados reais de quem está vendendo mais com o WhatsApp Sender Pro</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Aumentei minhas vendas em 300% no primeiro mês! O sistema é incrivelmente fácil de usar e 
+                        o suporte é excepcional. Melhor investimento que já fiz."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MP</div>
+                        <div class="author-info">
+                            <h4>Maria Paula</h4>
+                            <p>Loja de Cosméticos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Como agência, precisávamos de algo robusto e profissional. O WhatsApp Sender Pro superou 
+                        todas as expectativas. Multi-sessões é um game changer!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Ricardo Santos</h4>
+                            <p>Agência de Marketing Digital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "A proteção anti-ban é sensacional! Já testei outras ferramentas e sempre tinha problemas. 
+                        Aqui, zero bloqueios em 6 meses de uso intenso."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JC</div>
+                        <div class="author-info">
+                            <h4>João Carlos</h4>
+                            <p>E-commerce de Moda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre o WhatsApp Sender Pro</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">É seguro usar? Minha conta pode ser banida?</div>
+                    <div class="faq-answer">
+                        O WhatsApp Sender Pro utiliza tecnologia de proteção anti-ban que ajusta automaticamente 
+                        os intervalos de envio para simular comportamento humano. Com o plano PREMIUM, você tem 
+                        acesso à proteção completa com intervalos inteligentes e blacklist automático.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso testar antes de assinar?</div>
+                    <div class="faq-answer">
+                        Sim! Oferecemos um plano FREE completamente funcional para você testar o sistema. 
+                        Você pode fazer upgrade para PRO ou PREMIUM a qualquer momento sem burocracia.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quantas mensagens posso enviar por dia?</div>
+                    <div class="faq-answer">
+                        Não há limite fixo de mensagens no sistema. Recomendamos começar com volumes menores 
+                        (300-500/dia) e aumentar gradualmente. O sistema anti-ban ajusta automaticamente os 
+                        intervalos baseado no seu volume e padrão de uso.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Preciso de conhecimentos técnicos?</div>
+                    <div class="faq-answer">
+                        Não! O WhatsApp Sender Pro foi desenvolvido para ser extremamente intuitivo. 
+                        Qualquer pessoa consegue usar, mesmo sem conhecimento técnico. Além disso, oferecemos 
+                        suporte completo para ajudar você em qualquer dúvida.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona o suporte?</div>
+                    <div class="faq-answer">
+                        Todos os planos têm suporte por email. O plano PRO tem prioridade no atendimento, 
+                        e o PREMIUM conta com suporte via WhatsApp em horário comercial, garantindo respostas 
+                        rápidas durante o expediente.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Multiplicar suas Vendas?</h2>
+            <p>
+                Junte-se a centenas de empresas que já estão vendendo mais com o WhatsApp Sender Pro. 
+                Comece gratuitamente hoje mesmo!
+            </p>
+            <a href="https://whatsapp-sender.duckdns.org/auth.html" class="btn-primary">Começar Agora - É Grátis</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">WHATSAPP SENDER PRO</div>
+            <p class="footer-text">
+                A solução completa para disparos inteligentes no WhatsApp
+            </p>
+            <div class="footer-links">
+                <a href="#features">Recursos</a>
+                <a href="#pricing">Planos</a>
+                <a href="#faq">FAQ</a>
+                <a href="#">Contato</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+            <p class="copyright">
+                © 2026 WhatsApp Sender Pro. Todos os direitos reservados. | Desenvolvido com 💚 por TopZera Papelaria
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5561992572059?text=Olá!%20Tenho%20interesse%20no%20WhatsApp%20Sender%20Pro%20e%20gostaria%20de%20tirar%20algumas%20dúvidas." target="_blank" class="whatsapp-float" aria-label="Contato WhatsApp">
+        <span class="whatsapp-tooltip">Tire suas dúvidas!</span>
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.832.748 5.484 2.052 7.78L.7 30.5l7.016-1.84A15.91 15.91 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.548 0-4.94-.708-6.98-1.936l-.5-.296-5.184 1.36 1.388-5.064-.324-.516A13.263 13.263 0 0 1 2.667 16c0-7.364 5.97-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333z"/>
+            <path d="M23.546 19.408c-.388-.196-2.3-1.136-2.656-1.264-.356-.128-.616-.196-.876.196-.26.392-.996 1.264-1.224 1.524-.224.26-.452.292-.84.096-.388-.196-1.64-.604-3.124-1.928-1.156-1.032-1.936-2.308-2.164-2.696-.224-.388-.024-.6.172-.792.176-.176.388-.452.58-.68.196-.224.26-.388.388-.648.128-.26.064-.484-.032-.68-.096-.196-.876-2.112-1.2-2.892-.316-.756-.636-.652-.876-.664-.224-.012-.48-.012-.736-.012s-.68.096-.996.484c-.356.388-1.356 1.324-1.356 3.228s1.388 3.74 1.58 4 2.724 4.16 6.6 5.836.92.388 1.84.364c.916-.024 2.3-.94 2.624-1.848.324-.908.324-1.688.224-1.848-.096-.16-.356-.26-.744-.456z"/>
+        </svg>
+    </a>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
